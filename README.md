@@ -1,1 +1,1 @@
-# UbuntuYukkuri
+# Ubuntuでゆっくり生放送するためのプログラム
