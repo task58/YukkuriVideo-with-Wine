@@ -6,6 +6,8 @@ const readlineSync = require('readline-sync');
 
 const app = express();
 
+app.use(express.static("public"))
+
 const html = fs.readFileSync("./index.html");
 
 app.get("/",(req,res)=>{
