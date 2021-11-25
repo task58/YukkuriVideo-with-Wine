@@ -1,8 +1,10 @@
 const { exec } = require("child_process");
+const http = require("http")
 const express = require("express");
 const fs = require("fs");
 const CP = require('child_process');
 const readlineSync = require('readline-sync');
+const socketio = require("socket.io")
 
 const app = express();
 
@@ -31,6 +33,20 @@ const read =(text)=>{
     })
 }
 
-app.listen(8000,()=>{
+var server = http.createServer(app);
+
+var io = socketio(server);
+io.on('connection', function(socket){
+    socket.on("speak",(msg)=>{
+        console.log(msg)
+        read(msg)
+    })
+});
+
+
+server.listen(8000,()=>{
     read("プログラムを開始します");
 })
+
+
+
