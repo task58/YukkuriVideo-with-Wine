@@ -1,6 +1,9 @@
-# Ubuntuでゆっくり生放送するためのプログラム
+# YBCL with Wine
 
-現在このソフトは開発中です。  
+Yukkuri
+Broad
+Cast
+Live
 
 ## このソフトの目標
 
