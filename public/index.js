@@ -6,6 +6,8 @@ const socket = io();
 
 console.log(io)
 
+recognition.lang = "ja-JP"
+
 recognition.onresult = (event) => {
     var res = event.results[0][0].transcript;
     socket.emit("speak",res)
