@@ -1,10 +1,9 @@
 SpeechRecognition = webkitSpeechRecognition || SpeechRecognition;
 const recognition = new SpeechRecognition();
-const button = document.getElementById("rec");
+const record = document.getElementById("recon");
+// const recstop = document.getElementById("recstop");
 const text = document.getElementById("text");
 const socket = io();
-
-console.log(io)
 
 recognition.lang = "ja-JP"
 
@@ -17,9 +16,10 @@ recognition.onresult = (event) => {
 }
 
 recognition.onend = ()=>{
+    if(!record.checked)return;
     recognition.start()
 }
-    
-button.addEventListener("click",()=>{
-    recognition.start()
+
+record.addEventListener("click",()=>{
+    recognition.start();
 })

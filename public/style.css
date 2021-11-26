@@ -1,0 +1,60 @@
+/* ボタン共通 */
+.onoffbutton {
+    position       : relative;            
+    /* margin         : auto;                 */
+    width          : 160px;               
+    height         : 60px;                
+}
+
+.onoffbutton input[type="radio"] {
+    display        : none;           
+}
+
+.onoffbutton label {
+    display        : block;               
+    position       : absolute;           
+    top            : 0;                   
+    bottom         : 0;                  
+    left           : 0;                  
+    right          : 0;                  
+    text-align     : center;             
+    line-height    : 60px;                
+    font-size      : 18pt;                
+    font-weight    : bold;                
+    border         : 2px solid #ccc;      
+}
+
+/* 認識 */
+   
+.onoffbutton #recon + label {
+    right          : 50%;                
+    border-radius  : 6px 0 0 6px;         
+    background     : #eee;                
+    color          : #666;                
+    border-right   : none;                
+}
+   
+   
+.onoffbutton #recon:checked +label {
+                                          
+    background     : linear-gradient(180deg, #b30000, #ff0505, #b30000);
+    color          : #fff;                
+    text-shadow    : 1px 1px 1px #333;    
+}
+   
+
+.onoffbutton #recoff + label {
+    left           : 50%;                 
+    border-radius  : 0 6px 6px 0;        
+    background     : #eee;               
+    color          : #666;                
+    border-left    : none;                
+}
+
+   
+.onoffbutton #recoff:checked +label {
+                                          
+    background     : linear-gradient(175deg, #ccc, #999, #ccc);
+    color          : #fff;                
+    text-shadow    : 1px 1px 1px #333;  
+}

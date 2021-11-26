@@ -1,12 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 <body>
-    <button id="rec">rec!</button>
+    <h2>認識</h2>
+    <div class="onoffbutton" id="record">
+        <input type="radio" name="recbutton" id="recon" >
+          <label for="recon">ON</label>
+        <input type="radio" name="recbutton" id="recoff" checked="">
+          <label for="recoff">OFF</label>
+    </div>
     <p id="text"></p>
     <script src="socket.io.min.js"></script>
     <script src="index.js"></script>
