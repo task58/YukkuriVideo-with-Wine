@@ -1,0 +1,3 @@
+{
+  SofTalkDir :  softalk/ #SofTalkのフォルダを指定する 相対パスの場合、YCBLフォルダが起点となる デフォルト : softalk/
+}
