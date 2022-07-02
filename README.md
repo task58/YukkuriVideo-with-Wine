@@ -22,7 +22,7 @@
 
 1. node.jsを導入 ググったらたくさん出てくるので自分で入れてください
 2. wineを導入 ググったらたくさん出てくるので(ry ※32bit環境のwineを構築してください
-3. SofTalkをセットアップ ※手順2、3は[こちら](https://task58yt.blogspot.com/2021/10/ubuntunetsoftalk.html)で解説しています(Ubuntuの場合です)
+3. SofTalkをセットアップ ※手順2、3は[こちら](https://task58yt.blogspot.com/2021/10/ubuntunetsoftalk.html)で解説しています(Ubuntu/linuxの場合です)
 4. Google Chromeをインストール
 5. このソフトのディレクトリ直下にsoftalkフォルダを入れる
 6. このソフトのディレクトリで「npm install」を実行する
@@ -39,7 +39,7 @@
 
 ## 使い方
 
-[http://localhost:8000]にアクセスし、そこにある「rec!」ボタンを押せば録音が開始されます。
+[このURL](http://localhost:8000)にアクセスし、そこにある「rec!」ボタンを押せば録音が開始されます。
 その後しばらくしたらゆっくり音声が再生されます。
 
 ## アプリケーションディレクトリ

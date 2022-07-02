@@ -1,14 +1,14 @@
-const { exec } = require("child_process");
-const http = require("http")
-const express = require("express");
-const fs = require("fs");
-const CP = require('child_process');
-const readlineSync = require('readline-sync');
-const socketio = require("socket.io")
-const yaml = require("js-yaml");
-const configChacker = require("./lib/configChecker");
+const http = require("http");//音声認識サイドのサーバーを建てる用
+const express = require("express");//音声認識サイドのサーバーを建てる用
+const fs = require("fs");//config.yaml読み込み用
+const CP = require('child_process');//softalk起動用
+const readlineSync = require('readline-sync');//操作用
+const socketio = require("socket.io")//音声認識サイドとの連携用
+const yaml = require("js-yaml");//config.yaml読み込み用
+const configChacker = require("./lib/configChecker");//config.yamlがちゃんとしてるか調べる関数
 const path = require("path");
 const os = require("os");
+const crypto = require("crypto"); //ハッシュ値生成用
 
 const name = os.userInfo().username;
 const homeDir = os.userInfo().homedir
