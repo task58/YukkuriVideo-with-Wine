@@ -8,7 +8,8 @@ const yaml = require("js-yaml");//config.yaml読み込み用
 const configChacker = require("./lib/configChecker");//config.yamlがちゃんとしてるか調べる関数
 const path = require("path");
 const os = require("os");
-const crypto = require("crypto"); //ハッシュ値生成用
+const Crypto = require("crypto"); //ハッシュ値生成用
+require('date-utils');
 
 const name = os.userInfo().username;
 const homeDir = os.userInfo().homedir
@@ -64,11 +65,21 @@ if(parseInt(rec) == 0){
     recbool = true;
 }
 
+function getRandom(){ //乱数生成用
+    const buff = Crypto.randomBytes(1);  // バイナリで8byteのランダムな値を生成
+    const hex  = buff.toString("hex");   // 16進数の文字列に変換
+    return ( parseInt(hex,16) );         // integerに変換して返却
+}
+
 let recCount = 0;
+
+let date = new Date();
+let saveNum = `${date.toFormat("YYYYMMDDHH24MISS")}${getRandom()}`
+let saveDir = `${appDirWin}\\\\record\\\\${saveNum}\\\\`
 
 const command = (text,rec)=>{
     if(rec){
-        return `wine start ${config.SofTalkDir}/softalkw.exe /PR:${priset} /X:1 /R:${appDirWin}\\\\record\\\\rec_${recCount}_.wav /W:${text}`
+        return `wine start ${config.SofTalkDir}/softalkw.exe /PR:${priset} /X:1 /R:${saveDir}rec_${recCount}_.wav /W:${text}`
     }else{
         return `wine start ${config.SofTalkDir}/softalkw.exe /PR:${priset} /X:1 /W:${text}`
     }
@@ -76,6 +87,7 @@ const command = (text,rec)=>{
 
 const read =(text,rec)=>{
     CP.exec(command(text,rec),(err,stdout,stderr)=>{
+        recCount++
         if (err) {
             console.log(`err: ${stderr}`)
             process.exit(1);
@@ -97,7 +109,8 @@ io.on('connection', function(socket){
 server.listen(8000,()=>{
     console.log("server start!")
     if (recbool) {
-        console.log("録音モード")
+        fs.mkdirSync(`${appDir}/record/${saveNum}`)
+        console.log(`録音モード 出力先：${saveDir}`)
     }
     read("プログラムを開始します",false);
 })
